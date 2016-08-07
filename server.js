@@ -2,7 +2,7 @@ var app = require('express')();
 var moment = require('moment');
 var port = process.env.PORT || 3000;
 
-app.get('/', function(req, res){
+app.get('/index.html', function(req, res){
   var filename = path.join(__firname, 'index.html');
   res.sendFile(fileName, function(err){
     if(err)res.status(err.status).end();
