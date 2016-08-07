@@ -1,9 +1,13 @@
 var app = require('express')();
 var moment = require('moment');
+var port = process.env.PORT || 3000;
 
 app.get('/', function(req, res){
-  res.end('hello world');
-})
+  var filename = path.join(__firname, 'index.html');
+  res.sendFile(fileName, function(err){
+    if(err)res.status(err.status).end();
+  });
+});
 
 app.get('/:datestring', function(req, res){
   var datestring = req.params.datestring;
@@ -26,6 +30,6 @@ app.get('/:datestring', function(req, res){
   res.json(result);
 });
 
-app.listen(3000, function(){
+app.listen(port, function(){
   console.log("Listening on port 3000");
 });
