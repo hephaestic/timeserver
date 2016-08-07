@@ -1,10 +1,12 @@
 var app = require('express')();
-var moment = require('moment');
 var port = process.env.PORT || 3000;
+var path = require('path');
+var moment = require('moment');
 
-app.get('/index.html', function(req, res){
-  var filename = path.join(__firname, 'index.html');
-  res.sendFile(fileName, function(err){
+app.get('/', function(req, res){
+  var filename = path.join(__dirname, 'index.html');
+  console.log('sending ' + filename);
+  res.sendFile(filename, function(err){
     if(err)res.status(err.status).end();
   });
 });
